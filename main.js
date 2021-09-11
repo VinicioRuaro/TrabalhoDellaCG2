@@ -36,15 +36,14 @@ function drawBackground(){
 
 function update(){
   var newX = 0;
+
     if (reverse){
-      newX = myRectangle.x-10;
-      if(newX > 0+120) {
-        myRectangle.x = newX;
+      newX = myRectangle.y-10;
+      if(newX > 0+65) {
+        myRectangle.y = newX;
         
       } else {
          reverse = false;
-        myRectangle.x= 630;
-        myRectangle.y= 70;
       }
     } 
     else {
@@ -53,7 +52,7 @@ function update(){
         myRectangle.x = newX;
       } else {
         reverse = true;
-        myRectangle.x= 630;
+        myRectangle.x= 130;
         myRectangle.y= 420;
       }
       }
@@ -64,10 +63,10 @@ function update(){
 function draw(){
   context.beginPath();
   context.rect(myRectangle.x, myRectangle.y, myRectangle.width, myRectangle.height);
-  if(reverse){
-  context.fillStyle = 'purple';
+  if(myRectangle.x<550){
+  context.fillStyle = 'blue';
   }else{
-    context.fillStyle = 'blue';
+    context.fillStyle = 'purple';
   }
   context.fill();
   context.lineWidth = 1;
