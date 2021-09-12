@@ -1,11 +1,24 @@
 var myRectangle = {
-  x: 630,
-  y: 70,
-  width: 50,
-  height: 50,
-  color: "green"
+  x: 440,
+  y: 315,
+  width: 130,
+  height: 100,
 };
 
+
+var myRectangle2 = {
+  x: 610,
+  y: 63,
+  width: 130,
+  height: 100,
+};
+
+var myRectangle3 = {
+  x: 610,
+  y: 63,
+  width: 130,
+  height: 100,
+};
 
 
 var lastTime = 0;
@@ -24,7 +37,7 @@ function drawFPS(ms){
     fpsUpdate = now;
     fpsValue = fps;
   }
-  context.fillStyle = 'pink';
+  context.fillStyle = 'red';
   context.font = '20px monospace';
   context.fillText(fpsValue.toFixed() + ' fps', 10, 20);
 }
@@ -35,42 +48,26 @@ function drawBackground(){
 
 
 function update(){
-  var newX = 0;
-
-    if (reverse){
-      newX = myRectangle.y-10;
-      if(newX > 0+65) {
-        myRectangle.y = newX;
-        
-      } else {
-         reverse = false;
-      }
-    } 
-    else {
-      newX = myRectangle.x+10;
-      if(newX < canvas.width - myRectangle.width-120) {
-        myRectangle.x = newX;
-      } else {
-        reverse = true;
-        myRectangle.x= 130;
-        myRectangle.y= 420;
-      }
-      }
+  myRectangle.x= x[Math.floor(Math.random() * 10)]
+  myRectangle.y=y[Math.floor(Math.random() * 6)]
+  myRectangle2.x= x[Math.floor(Math.random() * 10)]
+  myRectangle2.y=y[Math.floor(Math.random() * 6)]
+  myRectangle3.x= x[Math.floor(Math.random() * 10)]
+  myRectangle3.y=y[Math.floor(Math.random() * 6)]
 }
 
 
 
 function draw(){
   context.beginPath();
+
   context.rect(myRectangle.x, myRectangle.y, myRectangle.width, myRectangle.height);
-  if(myRectangle.x<550){
-  context.fillStyle = 'blue';
-  }else{
-    context.fillStyle = 'purple';
-  }
+  context.rect(myRectangle3.x, myRectangle3.y, myRectangle3.width, myRectangle3.height);
+  context.rect(myRectangle2.x, myRectangle2.y, myRectangle2.width, myRectangle2.height);
+  context.fillStyle = 'broonw';
   context.fill();
   context.lineWidth = 1;
-  context.strokeStyle = 'black';
+  context.strokeStyle = 'blue';
   context.stroke();
 }
 
@@ -92,7 +89,13 @@ var inverter = true;
 var fpsUpdate = 0;
 var fpsValue = 0;
 var sky = new Image();
-    sky.src = "fundo 1.jpg";
+    sky.src = "Ilisão.jpg";
+
+var andar= new Image();
+    andar.scr= "wandar.jpg";
+
+var x =[-59,107,274,440,607,773,940,1110,1276];
+var y =[-65,61,186,315,440,567];
 
 
 window.requestNextAnimationFrame =  window.requestAnimationFrame
